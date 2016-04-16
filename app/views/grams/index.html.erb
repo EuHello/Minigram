@@ -1,0 +1,25 @@
+<% @grams.each do |gram| %>               <!-- loop to display each gram in table - rows in database -->
+  <div>
+
+    <div>
+      <%= link_to(gram.title, gram) %>
+
+    </div>
+
+    <div>
+      <%= gram.description %>
+    </div>
+
+    <div>
+      <%= gram.location_code %>
+    </div>
+
+    <div>
+      <%= link_to('Delete', gram, method: :delete) %>
+    </div>
+
+
+
+  </div>
+  <hr>        <!-- horizontal rule -->
+<% end %>
