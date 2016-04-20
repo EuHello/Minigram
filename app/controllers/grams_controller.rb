@@ -1,6 +1,6 @@
 class GramsController < ApplicationController
   def index
-    @grams = Gram.all
+    @grams = Gram.page(params[:page]).per(5)
   end
 
 

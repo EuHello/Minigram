@@ -48,7 +48,5 @@ end
 
 
 
-
-
-
-gem'country_select'
+gem 'country_select'
+gem 'kaminari'
