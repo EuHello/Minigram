@@ -1,4 +1,4 @@
-<% if @gram.errors %>
+<% if @gram.errors.present? %>
   <div>
       <%= @gram.errors.full_messages %>
   </div>

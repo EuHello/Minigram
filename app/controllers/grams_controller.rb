@@ -14,6 +14,7 @@ class GramsController < ApplicationController
   def create
     @gram = Gram.new(model_params)    #pass parameters to database
     if @gram.save
+      flash[:notice] = 'Gram successfully created'
       redirect_to @gram
     else
       render :new
