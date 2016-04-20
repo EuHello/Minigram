@@ -5,6 +5,11 @@
 <% end %>
 
 <%= form_for @gram do |f| %>
+<!--
+  <div>
+    <%= time_ago_in_words(grams.created_at) %>
+  </div> -->
+
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -18,7 +23,7 @@
 
   <div>
     <%= f.label :location_code %>
-    <%= f.text_field :location_code %>
+    <%= f.country_select :location_code, include_blank: true, priority_countries: ["SG","MY"], selected: "SG" %>
   </div>
 
   <div>
