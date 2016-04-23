@@ -9,7 +9,9 @@
           <div class='col-sm-6 text-right'>
             <span class='created_at'><%= link_to time_ago_in_words(@gram.created_at), gram_path(@gram) %></span>
             &nbsp;
-            <%= link_to icon('trash-o'), gram_path(@gram), method: :delete, data: { confirm: 'Are you sure you want to delete this Gram?'} %>
+            <% if current_user %>
+              <%= link_to icon('trash-o'), gram_path(@gram), method: :delete, data: { confirm: 'Are you sure you want to delete this Gram?'} %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -19,7 +21,7 @@
       <div class='panel-footer'>
         <div class='gram-title'><%= @gram.title %></div>
         <div class='gram-location'><%= icon('map-marker') %> <%= country_name(@gram.location_code) %></div>
-        <div class='gram-content'><%= @gram.decription %></div>
+        <div class='gram-content'><%= @gram.description %></div>
       </div>
     </div>
   </div>

@@ -8,4 +8,7 @@ module ApplicationHelper
     country.translations[I18n.locale.to_s]
   end
 
+
+
+
 end
