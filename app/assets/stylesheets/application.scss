@@ -1,0 +1,75 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+body {
+  background-color: #fafafa;
+
+  font-family: 'Open Sans';
+  font-weight: 600;
+}
+
+nav.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #edeeee;
+}
+
+.new-gram {
+  margin: 20px 0 40px;
+
+  font-size: 36px;
+}
+
+.panel {
+  .panel-heading,
+  .panel-footer {
+    background: #ffffff;
+  }
+
+  .panel-body {
+    padding: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.created_at {
+  a {
+    color: #a5a7aa;
+  }
+
+  a:hover {
+    color: #818488;
+  }
+}
+
+.gram-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.gram-location {
+  font-size: 12px;
+  font-style: italic;
+
+  color: #a5a7aa;
+}
+
+.gram-content {
+  margin: 10px 0;
+}
+
+.gram-preview {
+  margin-top: 10px;
+
+  img {
+    width: 100%;
+  }
+}
+
+

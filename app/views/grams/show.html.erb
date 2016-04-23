@@ -1,3 +1,26 @@
-<div><%= @gram.title %> </div>
-<div><%= @gram.description %> </div>
-<div><%= @gram.location_code %> </div>
+<div class='row'>
+  <div class='col-sm-6 col-sm-offset-3'>
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+        <div class='row'>
+          <div class='col-sm-6'>
+            Me
+          </div>
+          <div class='col-sm-6 text-right'>
+            <span class='created_at'><%= link_to time_ago_in_words(@gram.created_at), gram_path(@gram) %></span>
+            &nbsp;
+            <%= link_to icon('trash-o'), gram_path(@gram), method: :delete, data: { confirm: 'Are you sure you want to delete this Gram?'} %>
+          </div>
+        </div>
+      </div>
+      <div class='panel-body'>
+        <div><%= image_tag @gram.image_url %></div>
+      </div>
+      <div class='panel-footer'>
+        <div class='gram-title'><%= @gram.title %></div>
+        <div class='gram-location'><%= icon('map-marker') %> <%= country_name(@gram.location_code) %></div>
+        <div class='gram-content'><%= @gram.decription %></div>
+      </div>
+    </div>
+  </div>
+</div>

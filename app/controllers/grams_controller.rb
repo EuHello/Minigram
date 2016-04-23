@@ -1,6 +1,6 @@
 class GramsController < ApplicationController
   def index
-    @grams = Gram.page(params[:page]).per(5)
+    @grams = Gram.order(created_at: :desc).page(params[:page]).per(5)   #pagination gem
   end
 
 
@@ -36,17 +36,12 @@ class GramsController < ApplicationController
 
   private
   def model_params
-    params.require(:gram).permit(:title, :description, :location_code)
+    params.require(:gram).permit(:title, :description, :location_code, :image_url)
     #strong parameter concept. white listing of things to put into database.
     #if no white listing, anything can update database, new columns created for bigger arrays
     #prevent hacking. normally = admin attribute to update database
     #hackers will submit admin = true to attack database
   end
-
-
-
-
-
 
 
 

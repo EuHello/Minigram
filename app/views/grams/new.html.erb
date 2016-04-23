@@ -1,34 +1,49 @@
-<% if @gram.errors.present? %>
-  <div>
-      <%= @gram.errors.full_messages %>
+<div class= 'row'>   <!-- bootstrap grid row class -->
+  <div class = 'col-sm-6 col-sm-offset-3'>    <!-- bootstrap grid row class -->
+
+    <% if @gram.errors.present? %>
+      <div class='alert alert-danger'>
+        <ul>
+          <% @gram.errors.full_messages.each do |msg| %>
+            <li> <%= msg %> </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_for @gram do |f| %>
+
+      <div class='form-group text-center'>
+        <%= f.hidden_field :image_url, role: 'uploadcare-uploader', data: {crop: '600:600', 'images-only' => true}
+          %>  <!-- uploadcare insert -->
+      </div>
+
+      <div class = 'form-group'>    <!-- bootstrap gem class=form-group -->
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>   <!-- bootstrap gem class - form-control -->
+      </div>
+
+      <div class = 'form-group'>
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control'  %>
+      </div>
+
+
+      <div  class = 'form-group'>
+        <%= f.label :location_code %>
+        <%= f.country_select :location_code, {include_blank: true, priority_countries: ["SG","MY"], selected: "SG"}, class: 'form-control' %>
+
+
+      </div>
+
+      <div>
+        <%= f.submit class: 'btn btn-success' %>    <!-- bootstrap gem class - button - success button -->
+      </div>
+
+
+    <% end %>
   </div>
-<% end %>
-
-<%= form_for @gram do |f| %>
-
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-
-  <div>
-    <%= f.label :location_code %>
-    <%= f.country_select :location_code, include_blank: true, priority_countries: ["SG","MY"], selected: "SG" %>
-  </div>
-
-  <div>
-    <%= f.submit %>
-  </div>
-
-
-<% end %>
-
+</div>
 
 
 <!-- <form url = "/" method="post">
